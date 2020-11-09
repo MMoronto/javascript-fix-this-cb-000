@@ -41,8 +41,9 @@ function updateStatus(statusText) {
 function bake(updateFunction) {
   var status = "Baking at " + this.bakeTemp + " for " + this.bakeTime
   setTimeout(() => {
-    cool.call(updateFunction)
+    cool.call( this, updateFunction)
   }, 2000)
+  updateFunction(status)
 }
 
 function mix(updateFunction) {
